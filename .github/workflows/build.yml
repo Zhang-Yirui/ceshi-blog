@@ -36,12 +36,8 @@ jobs:
       - name: Init blog & Install dependencies
         run: |
           hexo init blog
-          cd ${{ github.workspace }}/blog
-          yarn add hexo-all-minifier
-          yarn add hexo-filter-mathjax
-          yarn add hexo-filter-mermaid-diagrams
-          yarn remove hexo-theme-landscape
-          git clone https://github.com/EvanNotFound/hexo-theme-redefine.git themes/redefine
+          echo "--------------------------------------------------"
+          ls -alh
         shell: bash
       # 
            
