@@ -20,23 +20,25 @@ jobs:
 
       - name: Insatll hexo
         run: |
-          echo "--------------------------------------------------"
           cd ${{ github.workspace }}
+          echo "--------------------------------------------------"
+          yarn global add hexo-cli
+          echo "--------------------------------------------------"
           ls -alh
+          echo "--------------------------------------------------"
           echo "nodejs version: $(node -v)"
           echo "npm version: $(npm -v)"
           echo "yarn version: $(yarn -v)"
-          echo "--------------------------------------------------"
-          npm install -g hexo-cli
+          echo "hexo version: $(hexo -v)"
           echo "--------------------------------------------------"
         shell: bash
 
-      - name: Init blog & Install redefine theme
-        run: |
-          cd ${{ github.workspace }}
-          npm install
-          hexo g
-        shell: bash
+      # - name: Init blog & Install redefine theme
+      #   run: |
+      #     cd ${{ github.workspace }}
+      #     npm install
+      #     hexo g
+      #   shell: bash
       
       # - name: Deploy the blog to Github Pages
       #   uses: JamesIves/github-pages-deploy-action@v4
