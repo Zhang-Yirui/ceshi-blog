@@ -25,6 +25,7 @@ jobs:
           ls -alh
           echo "nodejs version: $(node -v)"
           echo "npm version: $(npm -v)"
+          echo "yarn version: $(yarn -v)"
           echo "--------------------------------------------------"
           npm install -g hexo-cli
           echo "--------------------------------------------------"
