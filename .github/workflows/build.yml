@@ -1,0 +1,46 @@
+name: Generate Blogs
+on:
+  push:
+    branches: [main]
+  # schedule:
+    # - cron: "0 1-23/2 * * *" # every day
+  workflow_dispatch:
+
+permissions: write-all
+
+
+jobs:
+  Generate-And-Deploy-Blog:
+    name: Prepare the required files
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get files from repository
+        uses: actions/checkout@v4
+
+      - name: Insatll hexo
+        run: |
+          echo "--------------------------------------------------"
+          cd ${{ github.workspace }}
+          echo "nodejs version: $(node -v)"
+          echo "npm version: $(npm -v)"
+          echo "--------------------------------------------------"
+          npm install -g hexo-cli
+          echo "--------------------------------------------------"
+        shell: bash
+
+      - name: Init blog & Install redefine theme
+        run: |
+          cd ${{ github.workspace }}
+          npm install
+          hexo g
+        shell: bash
+      
+      # - name: Deploy the blog to Github Pages
+      #   uses: JamesIves/github-pages-deploy-action@v4
+      #   with:
+      #     token: ${{ secrets.GH_TOKEN }}
+      #     branch: main
+      #     folder: public
+      #     git-config-name: ${{ github.actor }}
+      #     repository-name: Zhang-Yirui/Zhang-Yirui.github.io
