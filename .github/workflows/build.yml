@@ -36,6 +36,7 @@ jobs:
       - name: Init blog & Install dependencies
         run: |
           hexo init blog
+          cd ${{ github.workspace }}/blog
           echo "--------------------------------------------------"
           ls -alh
         shell: bash
