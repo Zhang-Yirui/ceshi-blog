@@ -22,6 +22,7 @@ jobs:
         run: |
           echo "--------------------------------------------------"
           cd ${{ github.workspace }}
+          ls -alh
           echo "nodejs version: $(node -v)"
           echo "npm version: $(npm -v)"
           echo "--------------------------------------------------"
