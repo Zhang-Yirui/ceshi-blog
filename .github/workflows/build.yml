@@ -28,7 +28,7 @@ jobs:
         run: |
           cd ${{ github.workspace }}
           echo "--------------------------------------------------"
-          yarn global add hexo-cli
+          npm install -g hexo-cli
           echo "--------------------------------------------------"
           ls -alh
           echo "--------------------------------------------------"
@@ -43,12 +43,16 @@ jobs:
         run: |
           hexo init blog
           cd ${{ github.workspace }}/blog
-          echo "--------------------------------------------------"
           ls -alh
           npm install
           cat package.json
         shell: bash
-      # 
+      #           yarn add hexo-all-minifier
+          # yarn add hexo-filter-mathjax
+          # yarn add hexo-filter-mermaid-diagrams
+          # yarn remove hexo-theme-landscape
+          # git clone https://github.com/EvanNotFound/hexo-theme-redefine.git themes/redefine
+          # rm _config*yml
            
       # - name: Deploy the blog to Github Pages
       #   uses: JamesIves/github-pages-deploy-action@v4
