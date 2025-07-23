@@ -33,13 +33,16 @@ jobs:
           echo "--------------------------------------------------"
         shell: bash
 
-      # - name: Init blog & Install redefine theme
-      #   run: |
-      #     cd ${{ github.workspace }}
-      #     npm install
-      #     hexo g
-      #   shell: bash
-      
+      - name: Init blog & Install redefine theme
+        run: |
+          cd ${{ github.workspace }}
+          yarn install
+          hexo g
+        shell: bash
+      # yarn remove hexo-theme-landscape
+      # yarn add hexo-all-minifier
+      # yarn add hexo-filter-mathjax
+      # yarn add hexo-filter-mermaid-diagrams      
       # - name: Deploy the blog to Github Pages
       #   uses: JamesIves/github-pages-deploy-action@v4
       #   with:
