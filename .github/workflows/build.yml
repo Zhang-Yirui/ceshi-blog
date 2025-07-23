@@ -39,6 +39,7 @@ jobs:
           cd ${{ github.workspace }}/blog
           echo "--------------------------------------------------"
           ls -alh
+          cat package.json
         shell: bash
       # 
            
