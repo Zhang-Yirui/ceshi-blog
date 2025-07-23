@@ -44,7 +44,7 @@ jobs:
           hexo init blog
           cd ${{ github.workspace }}/blog
           ls -alh
-          npm install
+          yarn install
           cat package.json
         shell: bash
       #           yarn add hexo-all-minifier
